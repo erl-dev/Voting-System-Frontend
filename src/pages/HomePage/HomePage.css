@@ -1,0 +1,46 @@
+.homepage-container {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center;    /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  height: 100vh;
+  width: 100vw; /* Full viewport width */
+  background-color: skyblue;
+  text-align: center; /* Center text for h1 */
+}
+
+h1 {
+  font-size: 4rem; /* Adjust font size */
+  color: whitesmoke; /* Darker color for better contrast */
+  margin-bottom: 40px; /* Space between heading and buttons */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.button-container {
+  display: flex;            /* Flexbox to align buttons in a row */
+  flex-direction: row;     /* Align buttons horizontally */
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4CAF50;
+  color: white;
+  padding: 30px 50px;
+  font-size: 2.2rem;
+  margin: 10px; /* Adjust margin for better spacing */
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+.icon {
+  margin-right: 8px;
+  font-size: 2.2rem;
+}
