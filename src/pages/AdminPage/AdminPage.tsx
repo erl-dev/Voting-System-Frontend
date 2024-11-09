@@ -1,4 +1,3 @@
-// src/pages/AdminPage.tsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

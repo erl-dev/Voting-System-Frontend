@@ -1,24 +1,24 @@
 .homepage-container {
   display: flex;
-  flex-direction: column; /* Stack elements vertically */
-  align-items: center;    /* Center items horizontally */
-  justify-content: center; /* Center items vertically */
+  flex-direction: column; 
+  align-items: center;   
+  justify-content: center; 
   height: 100vh;
-  width: 100vw; /* Full viewport width */
+  width: 100vw; 
   background-color: skyblue;
-  text-align: center; /* Center text for h1 */
+  text-align: center;
 }
 
 h1 {
-  font-size: 4rem; /* Adjust font size */
-  color: whitesmoke; /* Darker color for better contrast */
-  margin-bottom: 40px; /* Space between heading and buttons */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  font-size: 4rem; 
+  color: whitesmoke; 
+  margin-bottom: 40px; 
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); 
 }
 
 .button-container {
-  display: flex;            /* Flexbox to align buttons in a row */
-  flex-direction: row;     /* Align buttons horizontally */
+  display: flex;           
+  flex-direction: row;    
 }
 
 .button {

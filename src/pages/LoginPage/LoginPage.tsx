@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
+import { useNavigate } from "react-router-dom";
 import "./LoginPage.css";
 
 Modal.setAppElement("#root");
@@ -11,6 +12,8 @@ const LoginPage: React.FC = () => {
   // State for modal
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
+
+  const navigate = useNavigate(); // Hook for navigation
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -28,68 +31,78 @@ const LoginPage: React.FC = () => {
         body: JSON.stringify(payload),
       });
 
-      // Ensure response is parsed as JSON
       const data = await response.json();
 
-      // Check if response is OK and handle accordingly
       if (response.ok) {
-        setModalMessage(data.message); // Use message from backend
+        // Assuming backend returns a JWT and roleId
+        localStorage.setItem("token", data.token); // Store the token
+        localStorage.setItem("roleId", data.roleId); // Store the roleId
+        if (data.roleId === 1) {
+          navigate("/admin2");
+        } else {
+          setModalMessage(data.message);
+        }
       } else {
         setModalMessage(data.message); // Handle error message
       }
     } catch (error: unknown) {
-      let errorMessage = "An unknown error occurred."; // Default message
+      let errorMessage = "An unknown error occurred.";
 
       if (error instanceof Error) {
-        errorMessage = error.message; // Get the message if error is an instance of Error
+        errorMessage = error.message;
       } else if (typeof error === "string") {
-        errorMessage = error; // Handle string errors directly
+        errorMessage = error;
       }
 
-      setModalMessage("An error occurred: " + errorMessage); // Set modal message for error
+      setModalMessage("An error occurred: " + errorMessage);
     } finally {
-      setIsModalOpen(true); // Open the modal regardless of success or error
+      setIsModalOpen(true);
     }
   };
+
   const closeModal = () => {
     setIsModalOpen(false);
   };
 
   return (
     <div className="loginpage-container">
-      <form onSubmit={handleSubmit}>
-        <h2 className="text-center">Login</h2>
-
-        <input
-          className="input-field"
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          className="input-field"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+      <header>Login Form</header>
+      <form onSubmit={handleSubmit} className="form">
+        <div className="input-box">
+          <label>Email</label>
+          <input
+            className="input-field"
+            type="email"
+            placeholder="Enter Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div className="input-box">
+          <label>Password</label>
+          <input
+            className="input-field"
+            type="password"
+            placeholder="Enter Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
         <button type="submit" className="button-login">
           Submit
         </button>
       </form>
 
-      {/* Modal for displaying messages */}
       <Modal
         isOpen={isModalOpen}
         onRequestClose={closeModal}
         contentLabel="Login Response"
-        className="modal" // Apply your custom class
-        overlayClassName="ReactModal__Overlay" // Custom overlay class
+        className="modal"
+        overlayClassName="ReactModal__Overlay"
       >
-        <h2>INFO</h2> {/* You can add a title for better presentation */}
+        <h2>INFO</h2>
         <p>{modalMessage}</p>
         <button onClick={closeModal}>OK</button>
       </Modal>

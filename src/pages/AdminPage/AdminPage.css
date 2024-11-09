@@ -23,10 +23,26 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     word-wrap: break-word;
+    width: 250px;
+    height: 100px;
   }
-  
-  .button-admin-registeruser {
-    background-color: #45a049;
+
+  .button-admin-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #5bbb5e;
+    color: white;
+    padding: 20px 30px;
+    font-size: 1.5rem;
+    margin: 5px; /* Adjust margin for better spacing */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    word-wrap: break-word;
+    width: 250px;
+    height: 100px;
   }
   
   .icon {

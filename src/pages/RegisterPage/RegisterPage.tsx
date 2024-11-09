@@ -73,45 +73,61 @@ const RegisterPage: React.FC = () => {
 
   return (
     <div className="registerpage-container">
-      <form onSubmit={handleSubmit}>
-        <h2 className="text-center">Register</h2>
-        <input
-          type="text"
-          placeholder="First Name"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Last Name"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          required
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <div>
-          <select
-            value={role}
-            onChange={(e) => handleRoleSelect(e.target.value)}
-          >
-            <option disabled>Select Role</option>
-            <option value="Admin">Admin</option>
-            <option value="Voter">Voter</option>
-          </select>
+      <header>Registration Form</header>
+      <form onSubmit={handleSubmit} className="form">
+        <div className="input-box">
+          <label>First Name</label>
+          <input
+            type="text"
+            placeholder="Enter First Name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            required
+          />
+        </div>
+        <div className="input-box">
+          <label>Last Name</label>
+          <input
+            type="text"
+            placeholder="Enter Last Name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required
+          />
+        </div>
+        <div className="input-box">
+          <label>Email</label>
+          <input
+            type="email"
+            placeholder="Enter Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div className="input-box">
+          <label>Password</label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <div className="input-box">
+          <div className="column">
+            <div className="select-box">
+              <select
+                value={role}
+                onChange={(e) => handleRoleSelect(e.target.value)}
+              >
+                <option disabled>Select Role</option>
+                <option value="Admin">Admin</option>
+                <option value="Voter">Voter</option>
+              </select>
+            </div>
+          </div>
         </div>
         <button type="submit" className="register-button">
           Submit
@@ -123,10 +139,10 @@ const RegisterPage: React.FC = () => {
         isOpen={isModalOpen}
         onRequestClose={closeModal}
         contentLabel="Registration Response"
-        className="modal" // Apply your custom class
-        overlayClassName="ReactModal__Overlay" // Custom overlay class
+        className="modal"
+        overlayClassName="ReactModal__Overlay"
       >
-        <h2>INFO</h2> {/* You can add a title for better presentation */}
+        <h2>INFO</h2>
         <p>{modalMessage}</p>
         <button onClick={closeModal}>Close</button>
       </Modal>

@@ -1,10 +1,152 @@
-.registerpage-container {
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body{
+  min-height: 100vh;
   display: flex;
-  flex-direction: column; /* Stack elements vertically */
-  align-items: center;    /* Center items horizontally */
-  justify-content: center; /* Center items vertically */
-  height: 100vh;
-  width: 100vw; /* Full viewport width */
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  background: skyblue;
+}
+.registerpage-container{
+  position: relative;
+  max-width: 700px;
+  width: 100%;
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.registerpage-container header{
+  font-size: 1.5 rem;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+}
+.registerpage-container form{
+  margin-top: 30px;
+}
+.form .input-box{
+  width: 100%;
+  margin-top: 20px;
+}
+.input-box label{
+  color: #333;
+}
+.form :where(.input-box input, .select-box){
+  position: relative;
+  height: 50px;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+  color: #707070;
+  margin-top: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0 15px;
+}
+.form button{
+  height: 55px;
+  width: 100%;
+  color: #fff;
+  font-size: 1.3rem;
+  border: none;
+  margin-top: 30px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 400;
+  transition: all 0.2s ease;
   background-color: skyblue;
-  text-align: center; /* Center text for h1 */
+}
+.form button:hover{
+  background-color: #608BC1;
+}
+.select-box select{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  color: #707070;
+  font-size: 1rem;
+}
+.input-box input:focus{
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Modal Overlay */
+.ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000; /* Ensures it appears above other content */
+}
+
+/* Modal Container */
+.modal {
+  max-width: 400px;
+  width: 100%;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: fadeIn 0.3s ease; /* Optional fade-in animation */
+  z-index: 1010;
+}
+
+
+/* Modal Header */
+.modal h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Modal Message Text */
+.modal p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Modal Close Button */
+.modal button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  background-color: #5bbb5e;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.modal button:hover {
+  background-color: #4ca54e;
+}
+
+/* Optional Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
